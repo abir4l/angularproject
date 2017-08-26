@@ -1,0 +1,53 @@
+.container{
+  padding: 3px;
+}
+.wrapper{
+  margin-left: 50px;
+
+
+}
+.table-striped{
+  padding :2px;
+}
+
+.form-group {
+  padding-right: 5px;
+}
+label.control-label {
+  display: block;
+}
+/*i.fa.fa-user-circle.user {
+  font-size: 24px;
+  color: #0000ff;
+  } */
+.fa{
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-right: 7px;
+}
+.btn{
+  display: inline;
+}
+li.userrole{
+  list-style-type: none;
+  padding-left: 10px;
+  padding-right: 5x;
+}
+label.control-label {
+  color: black;
+}
+.from{
+  display: block;
+}
+.check {
+  padding-left: 6px;
+  padding-top: 12px;
+}
+.lable.control-label.from {
+  color: black;
+}
+

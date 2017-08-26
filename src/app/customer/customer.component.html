@@ -1,0 +1,106 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline">
+          <div class="form-group">
+            <label class="control-label from" for="text">From</label>
+            <div class="input-group date" data-provide="datepicker">
+              <input type="text" class="form-control">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label from" for="text">To</label>
+            <div class="input-group date" data-provide="datepicker">
+              <input type="text" class="form-control">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <form class="form-inline">
+          <div class="form-group">
+            <label class="control-label" for="name"><i class="fa fa-user-circle" aria-hidden="true"></i>Username</label>
+            <input type="text" class="form-control" id="text">
+          </div>
+          <div class="form-group">
+
+            <label class="control-label" for="qty"><i class="fa fa-key" aria-hidden="true"></i>Nationality</label>
+            <input type="Password" class="form-control" id="qty">
+          </div>
+
+          <div class="form-group">
+            <label for="text" class="control-label"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Passport no</label>
+            <input type="password" class="form-control" id="price">
+          </div>
+
+          <div class="form-group">
+            <label for="text" class="control-label"><i class="fa fa-envelope" aria-hidden="true"></i>Email </label>
+            <input type="email" class="form-control" id="price">
+          </div>
+          <div class="form-group">
+
+            <li class="dropdown userrole">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">User Role
+                <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="add.html"><i class="fa fa-user-o" aria-hidden="true"></i>Admin </a></li>
+                <li><a href="add.html"><i class="fa fa-user-circle" aria-hidden="true"></i>User</a></li>
+
+              </ul>
+            </li>
+
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" role="button">Submit</button>
+          </div>
+          <div class="form-group">
+            <button type="danger" class="btn btn-danger" role="button">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="table">
+      <table class=" table table-striped">
+        <tr>
+          <th>S.N</th>
+          <th>Name</th>
+          <th>Nationality</th>
+          <th>Email</th>
+          <!--<th>Passport No.</th>-->
+          <th></th>
+        </tr>
+        <tr *ngFor="let customer of customers">
+          <td>{{customer.id}}</td>
+          <td>{{customer.name}}</td>
+          <td>{{customer.nation}}</td>
+          <td>{{customer.email}}</td>
+          <!--<td>blahblahblah@gmail.com</td> // change to passport number later-->
+          <td>
+            <div class="form-group btn">
+              <button type="submit" class="btn btn-primary" role="button"><i class="fa fa-pencil" aria-hidden="true"></i>Edit</button>
+            </div>
+            <div class="form-group btn">
+              <button type="danger" class="btn btn-danger" role="button"><i class="fa fa-trash" aria-hidden="true"></i>Delete</button>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
