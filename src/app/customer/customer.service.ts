@@ -16,7 +16,7 @@ export class CustomerService{
 
             (response: Response) => {
 
-                  response.json()
+                return  response.json()
             }
         );
     }

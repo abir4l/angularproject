@@ -16,19 +16,26 @@ export class CustomerComponent implements OnInit {
   ngOnInit() {
 
 
-    this.customerService.loadAllCustomers().subscribe(
-      (customers: Customer[]) => this.customers = customers
-    );
-    console.log(this.customer);
+    this.loadAll();
+
 
   }
 
 
+  loadAll()
+  {
+      this.customerService.loadAllCustomers().subscribe(
+          (customers: Customer[]) => this.customers = customers
+      );
+  }
+
   saveCustomer()
   {
+    console.log(this.customer);
     this.customerService.saveCustomer(this.customer)
         .subscribe(
-            (result:any)=>console.log(result),
+            (result:any)=>{console.log(result),
+            this.loadAll()},
             (error:any)=>console.log(error)
         )
   }

@@ -2,16 +2,17 @@ import {Product} from "../models/Product";
 import {Itinerary} from "../models/Itinerary";
 export class Customer {
 
-  id: number;
-  deleted: boolean;
-  passportNo:number;
-  from:Date;
-  to:Date;
-  createdOn: Date;
-  modifiedOn: Date;
+  id: number = null;
+  deleted: boolean=false;
+  passportNumber:string;
+  parent = null;
+  from:Date=null;
+  to:Date= null;
+  createdOn: Date = null;
+  modifiedOn: Date = null;
   name: string;
-  products: Product = new Product();
-  itineraries: Itinerary = new Itinerary();
+  products: Product[] = [];
+  itineraries: Itinerary[] = [];
   email: string;
   nation: string;
 
