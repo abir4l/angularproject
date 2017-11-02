@@ -19,10 +19,16 @@ export class ItineraryComponent implements OnInit {
 
   ngOnInit() {
 
-    this.itineraryService.loadAllItineraries().subscribe(
-      (itineraries: any[]) => this.itineraries = itineraries
-    );
 
+
+  }
+
+
+  loadAll()
+  {
+      this.itineraryService.loadAllItineraries().subscribe(
+          (itineraries: any[]) => this.itineraries = itineraries
+      );
   }
 
 
@@ -82,15 +88,7 @@ export class ItineraryComponent implements OnInit {
         console.log('Data deleted');
         console.log(data);
         this.itinerary = new Itinerary();
-        this.itineraries = this.itineraries.filter(
-          (val) => {
-
-            if(val.id == id)
-              return false;
-            return true;
-          }
-
-        );
+        this.loadAll();
 
       }
     );

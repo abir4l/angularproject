@@ -6,7 +6,7 @@ export class Customer {
   id: number = null;
   deleted: boolean=false;
   passportNumber:string;
-  parent = null;
+  parent:number=null ;
   from:Date=new Date();
   to:Date= new Date();
   createdOn: Date = null;

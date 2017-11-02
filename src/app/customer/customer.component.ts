@@ -49,8 +49,6 @@ export class CustomerComponent implements OnInit {
     {
         if(this.editStatus)
         {
-            this.customer.from = null;
-            this.customer.to = null;
             this.customerService.editCustomer(this.customer)
                 .subscribe(
                     (result:any)=>{console.log(result),
@@ -74,6 +72,21 @@ export class CustomerComponent implements OnInit {
         }
     }
 
+
+
+  deleteCustomer(customerId:number)
+  {
+      this.customerService.deleteCustomer(customerId)
+          .subscribe(
+
+              (result:any)=>{this.loadAll();
+                  },
+              (error:any) =>console.log(error)
+          )
+  }
+
+
+
     getCustomer(customerId)
     {
         this.customerService.getCustomerById(customerId)
@@ -82,5 +95,10 @@ export class CustomerComponent implements OnInit {
                     this.editStatus = true},
                 (error:any) =>console.log(error)
             )
+    }
+
+    compareCustomer(obj1:Customer,obj2:Customer)
+    {
+        return(obj1.id == obj2.id)
     }
 }

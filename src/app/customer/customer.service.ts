@@ -54,7 +54,12 @@ export class CustomerService{
   }
 
 
-
+    deleteCustomer(id:number){
+        return this.http.delete(environment.api+'customer/'+id)
+            .map(
+                (response:Response)=>console.log(response)
+            );
+    }
 
 
 
