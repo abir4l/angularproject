@@ -32,22 +32,22 @@
         <form class="form-inline">
           <div class="form-group">
             <label class="control-label" for="name"><i class="fa fa-user-circle" aria-hidden="true"></i>Username</label>
-            <input type="text" class="form-control" id="text" >
+            <input type="text" class="form-control" id="text" name="userName" [(ngModel)]="customer.name">
           </div>
           <div class="form-group">
 
             <label class="control-label" for="qty"><i class="fa fa-key" aria-hidden="true"></i>Nationality</label>
-            <input type="Password" class="form-control" id="qty">
+            <input type="Password" class="form-control" id="qty" name="nationality" [(ngModel)]="customer.nation">
           </div>
 
           <div class="form-group">
             <label for="text" class="control-label"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Passport no</label>
-            <input type="password" class="form-control" id="price">
+            <input type="password" class="form-control" id="passportNo" >
           </div>
 
           <div class="form-group">
             <label for="text" class="control-label"><i class="fa fa-envelope" aria-hidden="true"></i>Email </label>
-            <input type="email" class="form-control" id="price">
+            <input type="email" class="form-control" id="price" name="email" [(ngModel)]="customer.email">
           </div>
           <div class="form-group">
 

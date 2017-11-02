@@ -19,7 +19,7 @@ export class CustomerComponent implements OnInit {
     this.customerService.loadAllCustomers().subscribe(
       (customers: Customer[]) => this.customers = customers
     );
-
+    console.log(this.customer);
 
   }
 
