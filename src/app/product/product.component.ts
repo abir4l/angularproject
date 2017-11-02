@@ -54,6 +54,13 @@ export class ProductComponent implements OnInit {
   }
 
 
+
+    deleteConfirm(id:number) {
+        if(confirm("Are you sure to delete ?")) {
+            this.deleteProduct(id);
+        }
+    }
+
  public deleteProduct(id: number){
    console.log(this.products);
     this.productService.deleteProduct(id).subscribe(

@@ -68,6 +68,13 @@ export class ItineraryComponent implements OnInit {
   }
 
 
+    deleteConfirm(id:number) {
+        if(confirm("Are you sure to delete ?")) {
+            this.deleteItinerary(id);
+        }
+    }
+
+
   public deleteItinerary(id: number){
     console.log(this.itineraries);
     this.itineraryService.deleteItinerary(id).subscribe(
