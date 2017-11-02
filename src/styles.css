@@ -19,3 +19,7 @@ body{
 .form-group {
   padding-right: 5px;
 }
+
+.ngx-datepicker-calendar-container{
+  z-index: 999 !important;
+}

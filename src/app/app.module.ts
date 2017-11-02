@@ -11,6 +11,9 @@ import { CustomerComponent } from './customer/customer.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import {CustomerService} from "./customer/customer.service";
+import { NgDatepickerModule } from 'ng2-datepicker';
+
+
 
 
 @NgModule({
@@ -22,13 +25,17 @@ import {CustomerService} from "./customer/customer.service";
     UserComponent,
     CustomerComponent,
     CustomerDetailComponent,
+
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+      NgDatepickerModule
+
+
   ],
   providers: [
       CustomerService
