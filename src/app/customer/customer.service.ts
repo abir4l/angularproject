@@ -16,7 +16,7 @@ export class CustomerService{
 
             (response: Response) => {
 
-                return  response.json()
+                console.log(response)
             }
         );
     }
@@ -47,7 +47,7 @@ export class CustomerService{
 
           (response: Response) => {
 
-              response.json()
+              console.log(response);
           }
       );
 

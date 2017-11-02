@@ -12,6 +12,7 @@ export class CustomerComponent implements OnInit {
   constructor(private customerService: CustomerService) { }
   customers: Customer[] = [];
   customer:Customer = new Customer();
+  editStatus:boolean;
 
   ngOnInit() {
 
@@ -31,20 +32,39 @@ export class CustomerComponent implements OnInit {
 
   saveCustomer()
   {
-    console.log(this.customer);
+    if(this.editStatus)
+    {
+      this.customer.from = null;
+      this.customer.to = null;
+      this.customerService.editCustomer(this.customer)
+          .subscribe(
+              (result:any)=>{console.log(result),
+                  this.customer = null;
+                  this.customer = new Customer();
+                  this.loadAll();
+                  this.editStatus=false},
+              (error:any)=>console.log(error)
+          )
+    }
+    else
+    {
     this.customerService.saveCustomer(this.customer)
         .subscribe(
-            (result:any)=>{console.log(result),
-            this.loadAll()},
+            (result:any)=>{
+                this.customer = null;
+                this.customer = new Customer();
+                this.loadAll();},
             (error:any)=>console.log(error)
         )
+    }
   }
 
   getCustomer(customerId)
   {
     this.customerService.getCustomerById(customerId)
         .subscribe(
-            (result:any)=>this.customer=result,
+            (result:any)=>{this.customer=result;
+            this.editStatus = true},
             (error:any) =>console.log(error)
         )
   }
