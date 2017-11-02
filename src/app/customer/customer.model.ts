@@ -4,6 +4,9 @@ export class Customer {
 
   id: number;
   deleted: boolean;
+  passportNo:number;
+  from:Date;
+  to:Date;
   createdOn: Date;
   modifiedOn: Date;
   name: string;

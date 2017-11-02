@@ -33,4 +33,13 @@ export class CustomerComponent implements OnInit {
         )
   }
 
+  getCustomer(customerId)
+  {
+    this.customerService.getCustomerById(customerId)
+        .subscribe(
+            (result:any)=>this.customer=result,
+            (error:any) =>console.log(error)
+        )
+  }
+
 }

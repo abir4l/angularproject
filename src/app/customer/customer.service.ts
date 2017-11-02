@@ -30,7 +30,7 @@ export class CustomerService{
 
   }
 
-  getCustomerById(customerId:number){
+     getCustomerById(customerId:number){
 
       return this.http.get(environment.api+'customer/'+customerId)
           .map(
