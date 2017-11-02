@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import {Product} from "../models/Product";
 import 'rxjs/Rx';
+import {environment} from "../../environments/environment";
 @Injectable()
 export class ProductService{
 
@@ -11,11 +12,11 @@ export class ProductService{
 
 
   loadAllProducts(){
-    return this.http.get('http://localhost:8080/hostel/product')
+    return this.http.get(environment.api+'product')
   }
 
   saveProduct(product: Product){
-    return this.http.post('http://localhost:8080/hostel/product',product).map(
+    return this.http.post(environment.api+'product',product).map(
 
       (response: Response) => response
     );
@@ -25,11 +26,11 @@ export class ProductService{
   editProduct(product: Product) {
     console.log('Product to be edited');
     console.log(product);
-    return this.http.put('http://localhost:8080/hostel/product',product);
+    return this.http.put(environment.api+'product',product);
   }
 
   deleteProduct(id: number) {
 
-    return this.http.delete('http://localhost:8080/hostel/product/'+id);
+    return this.http.delete(environment.api+'product/'+id);
   }
 }

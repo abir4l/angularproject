@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import {Itinerary} from "../models/Itinerary";
 import 'rxjs/Rx';
+import {environment} from "../../environments/environment";
 const api = 'http://localhost:8080/hostel/';
 @Injectable()
 export class ItineraryService{
@@ -14,14 +15,14 @@ export class ItineraryService{
 
   loadAllItineraries(){
 
-    return this.http.get('http://localhost:8080/hostel/itinerary')
+    return this.http.get(environment.api+'itinerary')
       .map((response: Response) => response.json())
 
     }
 
 
   saveItinerary(itinerary: Itinerary){
-    return this.http.post(api+'itinerary',itinerary).map(
+    return this.http.post(environment.api+'itinerary',itinerary).map(
 
       (response: Response) => {
 
@@ -32,11 +33,11 @@ export class ItineraryService{
 
 
   deleteItinerary(id:number){
-    return this.http.delete('http://localhost:8080/hostel/itinerary/'+id);
+    return this.http.delete(environment.api+'itinerary/'+id);
   }
 
 
   editItinerary(itinerary: Itinerary){
-    return this.http.put('http://localhost:8080/hostel/itinerary',itinerary);
+    return this.http.put(environment.api+'itinerary',itinerary);
   }
 }
