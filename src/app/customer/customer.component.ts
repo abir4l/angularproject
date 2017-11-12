@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CustomerService} from "./customer.service";
-import {Customer} from "./customer.model";
+import {Customer} from "../models/customer.model";
 import { DatepickerOptions } from 'ng2-datepicker';
 
 @Component({
@@ -49,13 +49,18 @@ export class CustomerComponent implements OnInit {
     {
         if(this.editStatus)
         {
+            if(this.customer.id == this.customer.parentId){
+
+                this.customer.parentId = null;
+            }
             this.customerService.editCustomer(this.customer)
                 .subscribe(
-                    (result:any)=>{console.log(result),
-                        this.customer = null;
+                    (result:any)=>{
+
                         this.customer = new Customer();
                         this.loadAll();
-                        this.editStatus=false},
+                        this.editStatus=false
+                    },
                     (error:any)=>console.log(error)
                 )
         }
@@ -76,13 +81,18 @@ export class CustomerComponent implements OnInit {
 
   deleteCustomer(customerId:number)
   {
+
+      if(confirm("Are you sure?")){
+
+
       this.customerService.deleteCustomer(customerId)
           .subscribe(
 
               (result:any)=>{this.loadAll();
                   },
               (error:any) =>console.log(error)
-          )
+          );
+      }
   }
 
 
@@ -91,14 +101,13 @@ export class CustomerComponent implements OnInit {
     {
         this.customerService.getCustomerById(customerId)
             .subscribe(
-                (result:any)=>{this.customer=result;
+                (result:any)=>{
+                    this.customer=result;
+                    console.log(result);
                     this.editStatus = true},
                 (error:any) =>console.log(error)
             )
     }
 
-    compareCustomer(obj1:Customer,obj2:Customer)
-    {
-        return(obj1.id == obj2.id)
-    }
+
 }

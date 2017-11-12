@@ -6,5 +6,6 @@
 export const environment = {
     production: false,
     skipAuthenticationChecks: false,
-    api : 'http://192.168.100.20:8080/hostel/'
+    // api : 'http://192.168.100.20:8080/hostel/'
+    api : 'http://localhost:8080/hostel/'
 };

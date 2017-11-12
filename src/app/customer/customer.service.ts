@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import 'rxjs/Rx';
 import {environment} from "../../environments/environment";
-import {Customer} from "./customer.model";
+import {Customer} from "../models/customer.model";
 @Injectable()
 export class CustomerService{
 

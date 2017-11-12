@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
-import {Itinerary} from "../models/Itinerary";
+import {Itinerary} from "../models/Itinerary.model";
 import 'rxjs/Rx';
 import {environment} from "../../environments/environment";
 const api = 'http://localhost:8080/hostel/';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Itinerary} from "../models/Itinerary";
+import {Itinerary} from "../models/Itinerary.model";
 import {ItineraryService} from "./itinerary.service";
 import {Response} from "@angular/http";
 import {isUndefined} from "util";
@@ -19,7 +19,7 @@ export class ItineraryComponent implements OnInit {
 
   ngOnInit() {
 
-
+      this.loadAll();
 
   }
 
@@ -27,13 +27,17 @@ export class ItineraryComponent implements OnInit {
   loadAll()
   {
       this.itineraryService.loadAllItineraries().subscribe(
-          (itineraries: any[]) => this.itineraries = itineraries
+          (itineraries: any[]) => {
+
+              this.itineraries = itineraries
+          }
       );
   }
 
 
   submitItinerary(){
 
+    console.log(this.itinerary);
     if(!(isUndefined(this.itinerary.id)))
     {
       this.itineraryService.editItinerary(this.itinerary).subscribe(
@@ -82,7 +86,7 @@ export class ItineraryComponent implements OnInit {
 
 
   public deleteItinerary(id: number){
-    console.log(this.itineraries);
+
     this.itineraryService.deleteItinerary(id).subscribe(
       (data:any) => {
         console.log('Data deleted');
