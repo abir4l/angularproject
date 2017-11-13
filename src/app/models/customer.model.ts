@@ -14,12 +14,12 @@ export class Customer {
   createdOn: Date;
   modifiedOn: Date;
   name: string;
-  products: Product[] = [];
-  itineraries: Itinerary[] = [];
+  // products: Product[] = [];
+  // itineraries: Itinerary[] = [];
   email: string;
   nation: string;
-  customerProducts:CustomerProducts;
-  customerItinerary:CustomerItinerary;
+  products:CustomerProducts[]=[];
+  customerItinerary:CustomerItinerary[]=[];
 
 
 }

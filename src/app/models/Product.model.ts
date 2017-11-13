@@ -1,7 +1,7 @@
 export class Product{
 
   id: number;
-  deleted: Date;
+  deleted: boolean;
   createdOn: Date;
   modifiedOn: Date;
   description: string;

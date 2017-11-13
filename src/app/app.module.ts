@@ -12,6 +12,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
 import {CustomerService} from "./customer/customer.service";
 import { NgDatepickerModule } from 'ng2-datepicker';
+import {SharedService} from "./shared-service";
 
 
 
@@ -38,7 +39,8 @@ import { NgDatepickerModule } from 'ng2-datepicker';
 
   ],
   providers: [
-      CustomerService
+      CustomerService,
+      SharedService
   ],
   bootstrap: [AppComponent]
 })

@@ -23,3 +23,11 @@ body{
 .ngx-datepicker-calendar-container{
   z-index: 999 !important;
 }
+
+.customer-name {
+  cursor: pointer;
+}
+.customer-name:hover{
+    color: #4467ff;
+  text-decoration: underline;
+}

@@ -3,6 +3,7 @@ import {Http, Response} from "@angular/http";
 import 'rxjs/Rx';
 import {environment} from "../../environments/environment";
 import {Customer} from "../models/customer.model";
+import {CustomerProducts} from "../models/customerProduct.model";
 @Injectable()
 export class CustomerService{
 
@@ -42,7 +43,6 @@ export class CustomerService{
 
 
      editCustomer(customer:Customer){
-
       return this.http.put(environment.api+'customer',customer).map(
 
           (response: Response) => {
@@ -59,6 +59,13 @@ export class CustomerService{
             .map(
                 (response:Response)=>console.log(response)
             );
+    }
+
+    buyProduct(customerProduct:CustomerProducts){
+
+        return this.http.post(environment.api+'customer/buyProduct',customerProduct).map(
+            (response: Response) => response
+        )
     }
 
 

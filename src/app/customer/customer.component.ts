@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {CustomerService} from "./customer.service";
 import {Customer} from "../models/customer.model";
 import { DatepickerOptions } from 'ng2-datepicker';
+import {SharedService} from "../shared-service";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-customer',
@@ -24,7 +26,7 @@ export class CustomerComponent implements OnInit {
 };
 
 
-    constructor(private customerService: CustomerService) {
+    constructor(private customerService: CustomerService,private sharedService:SharedService,private router:Router) {
 
     }
 
@@ -104,9 +106,23 @@ export class CustomerComponent implements OnInit {
                 (result:any)=>{
                     this.customer=result;
                     console.log(result);
-                    this.editStatus = true},
+                    this.editStatus = true
+                },
                 (error:any) =>console.log(error)
             )
+    }
+
+    showCustomerDetail(customer:Customer){
+
+        this.sharedService.customer = customer;
+        this.router.navigate(['/customer-detail']);
+
+
+    }
+
+    resetCustomer(){
+        this.customer = new Customer();
+        this.editStatus = false;
     }
 
 

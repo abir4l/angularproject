@@ -5,6 +5,7 @@ import {ProductComponent} from "./product/product.component";
 import {ItineraryComponent} from "./itinerary/itinerary.component";
 import {UserComponent} from "./user/user.component";
 import {CustomerComponent} from "./customer/customer.component";
+import {CustomerDetailComponent} from "./customer-detail/customer-detail.component";
 
 const approutes: Routes = [
 
@@ -13,7 +14,8 @@ const approutes: Routes = [
     { path: 'products', component: ProductComponent },
     { path: 'itineraries', component: ItineraryComponent },
     { path: 'user', component: UserComponent},
-    { path: 'customer', component: CustomerComponent}
+    { path: 'customer', component: CustomerComponent},
+    { path: 'customer-detail', component: CustomerDetailComponent},
 
 
 ];

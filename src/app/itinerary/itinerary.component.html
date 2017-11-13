@@ -31,7 +31,8 @@
         <th>Price</th>
         <th>Options</th>
       </tr>
-      <tr *ngFor="let val of itineraries">
+      <tr *ngFor="let val of itineraries;let i=index">
+        <td>{{i+1}}</td>
         <td>{{val.description}}</td>
         <td>{{val.price}}</td>
         <td>
