@@ -19,7 +19,7 @@ export class Customer {
   email: string;
   nation: string;
   products:CustomerProducts[]=[];
-  customerItinerary:CustomerItinerary[]=[];
+  itineraries:CustomerItinerary[]=[];
 
 
 }

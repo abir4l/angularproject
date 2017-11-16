@@ -4,6 +4,7 @@ import 'rxjs/Rx';
 import {environment} from "../../environments/environment";
 import {Customer} from "../models/customer.model";
 import {CustomerProducts} from "../models/customerProduct.model";
+import {CustomerItinerary} from "../models/customerItinerary.model";
 @Injectable()
 export class CustomerService{
 
@@ -67,6 +68,14 @@ export class CustomerService{
             (response: Response) => response
         )
     }
+
+    buyItinerary(customerItinerary:CustomerItinerary){
+        console.log(customerItinerary);
+        return this.http.post(environment.api+'customer/buyItinerary',customerItinerary).map(
+            (response: Response) => response
+        )
+    }
+
 
 
 

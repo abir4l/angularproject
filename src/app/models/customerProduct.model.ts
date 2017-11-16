@@ -6,4 +6,5 @@ export class CustomerProducts{
     customerId:number;
     product: Product;
     quantity: number;
+    createdOn: Date;
 }

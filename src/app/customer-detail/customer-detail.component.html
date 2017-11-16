@@ -3,6 +3,8 @@
 
     <div class="container">
         <h3>{{customer.name}}</h3>
+        <h4>Due Amount: </h4>
+        <h4>Paid Amount: </h4>
         <div class="row">
             <div class="col-md-6">
                 <h4 class="text-primary">
@@ -76,9 +78,53 @@
                                 Buy
                             </button>
                         </td>
-                        <td>
-                            <button class="btn btn-primary">Buy</button>
-                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-primary">
+                    <small>Bought Products</small>
+                </h4>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr class="warning">
+                        <th>S.N.</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Bought On</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let product of customer.products;let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{product.product.description}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{product.createdOn | date: 'dd/MMM/yyyy h:mm:ss'}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h4 class="text-primary">
+                    <small>Bought Itineraries</small>
+                </h4>
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr class="warning">
+                        <th>S.N.</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Bought On</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let itinerary of customer.itineraries;let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{itinerary.itinerary.description}}</td>
+                        <td>{{itinerary.quantity}}</td>
+                        <td>{{itinerary.createdOn | date: 'dd/MMM/yyyy h:mm:ss'}}</td>
                     </tr>
                     </tbody>
                 </table>
