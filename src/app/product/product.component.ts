@@ -22,14 +22,19 @@ export class ProductComponent implements OnInit {
 
     if(!(isUndefined(this.product.id))){
       this.productService.editProduct(this.product).subscribe(
-        (data:any) => this.product = new Product()
+        (data:any) => {
+            this.product = new Product();
+            this.loadProducts();
+
+        }
       );
     }else{
          this.productService.saveProduct(this.product).subscribe(
            (data: any) => {
-             console.log(data);
-             this.products.push(this.product);
+
+             this.loadProducts();
              this.product = new Product();
+
            }
          );
     }
@@ -62,27 +67,18 @@ export class ProductComponent implements OnInit {
     }
 
  public deleteProduct(id: number){
-   console.log(this.products);
+
     this.productService.deleteProduct(id).subscribe(
       (data:any) => {
-        console.log('Data deleted');
-        console.log(data);
+
         this.product = new Product();
-        this.products = this.products.filter(
-          (val) => {
-
-            if(val.id == id)
-              return false;
-            return true;
-          }
-
-        );
+        this.loadProducts();
 
       }
     );
 
 
-   console.log(this.products);
+
 
   }
 
@@ -90,13 +86,17 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
 
 
+    this.loadProducts();
 
-     this.productService.loadAllProducts().subscribe(
+  }
 
-      (response: Response)=> this.products = response.json()
+  loadProducts(){
+      this.productService.loadAllProducts().subscribe(
+
+          (response: Response)=> this.products = response.json()
 
 
-    );
+      );
 
   }
 

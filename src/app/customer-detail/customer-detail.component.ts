@@ -73,6 +73,7 @@ export class CustomerDetailComponent implements OnInit {
           this.customerService.getCustomerById(this.customer.id).subscribe(
               (response:any)=>this.customer= response
           );
+          this.loadProducts();
         }
     );
     customerProducts = new CustomerProducts();
